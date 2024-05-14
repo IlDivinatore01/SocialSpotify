@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifica Playlist - Social Network for Music</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Modifica Playlist</h1>
+        </header>
+        <main>
+            <!-- Form per la modifica della playlist -->
+            <form action="/playlists/<%= playlist._id %>" method="post">
+                <label for="title">Titolo:</label><br>
+                <input type="text" id="title" name="title" value="<%= playlist.title %>" required><br>
+                <label for="description">Descrizione:</label><br>
+                <textarea id="description" name="description" rows="4" cols="50"><%= playlist.description %></textarea><br>
+                <button type="submit">Salva Modifiche</button>
+            </form>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2024 Social Network for Music</p>
+        </footer>
+    </div>
+</body>
+</html>

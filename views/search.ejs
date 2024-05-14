@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca - Social Network for Music</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Ricerca</h1>
+        </header>
+        <main>
+            <!-- Form per la ricerca di playlist -->
+            <form action="/search" method="get">
+                <label for="searchQuery">Cerca Playlist:</label><br>
+                <input type="text" id="searchQuery" name="searchQuery" required><br>
+                <button type="submit">Cerca</button>
+            </form>
+            <div class="search-results">
+                <!-- Risultati della ricerca verranno visualizzati qui -->
+                <% if (playlists.length > 0) { %>
+                    <h2>Playlist trovate:</h2>
+                    <ul>
+                        <% playlists.forEach(playlist => { %>
+                            <li><%= playlist.title %></li>
+                        <% }); %>
+                    </ul>
+                <% } else { %>
+                    <p>Nessuna playlist trovata.</p>
+                <% } %>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2024 Social Network for Music</p>
+        </footer>
+    </div>
+</body>
+</html>

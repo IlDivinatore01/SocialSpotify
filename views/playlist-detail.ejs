@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli Playlist - Social Network for Music</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Dettagli Playlist</h1>
+        </header>
+        <main>
+            <h2><%= playlist.title %></h2>
+            <p><%= playlist.description %></p>
+            <p><strong>Proprietario:</strong> <%= playlist.owner.username %></p>
+            <p><strong>Data di creazione:</strong> <%= playlist.createdAt.toDateString() %></p>
+            <p><strong>Canzoni:</strong></p>
+            <ul>
+                <% playlist.songs.forEach(song => { %>
+                    <li><%= song.title %> - <%= song.artist %> (<%= song.year %>)</li>
+                <% }); %>
+            </ul>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2024 Social Network for Music</p>
+        </footer>
+    </div>
+</body>
+</html>
