@@ -3,11 +3,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const passport = require('passport');
 const dotenv = require('dotenv');
 
 // Initialize Express app
 const app = express();
+
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
 
 // Configure environment variables
 dotenv.config();
@@ -27,6 +29,7 @@ app.use(session({
 }));
 
 // Initialize Passport.js for authentication
+const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
