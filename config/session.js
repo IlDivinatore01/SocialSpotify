@@ -1,12 +1,16 @@
-// Import del modulo dotenv per caricare le variabili d'ambiente
+// Import the dotenv module to load environment variables
 require('dotenv').config();
 
-// Configurazione delle opzioni di sessione
+// Define the session options
 const sessionOptions = {
-    secret: process.env.SESSION_SECRET || 'your_session_secret_here',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 };
 
-// Esportazione delle opzioni di sessione
+if (!sessionOptions.secret) {
+  throw new Error('Please define the SESSION_SECRET environment variable');
+}
+
+// Export the session options
 module.exports = sessionOptions;

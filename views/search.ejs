@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricerca - Social Network for Music</title>
+    <title>Search - Social Network for Music</title>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1>Ricerca</h1>
+            <h1>Search</h1>
         </header>
         <main>
-            <!-- Form per la ricerca di playlist -->
+            <!-- Search form for playlists -->
             <form action="/search" method="get">
-                <label for="searchQuery">Cerca Playlist:</label><br>
+                <label for="searchQuery">Search Playlists:</label><br>
                 <input type="text" id="searchQuery" name="searchQuery" required><br>
-                <button type="submit">Cerca</button>
+                <button type="submit">Search</button>
             </form>
             <div class="search-results">
-                <!-- Risultati della ricerca verranno visualizzati qui -->
+                <!-- Search results will be displayed here -->
                 <% if (playlists.length > 0) { %>
-                    <h2>Playlist trovate:</h2>
+                    <h2>Playlists found:</h2>
                     <ul>
                         <% playlists.forEach(playlist => { %>
                             <li><%= playlist.title %></li>
                         <% }); %>
                     </ul>
                 <% } else { %>
-                    <p>Nessuna playlist trovata.</p>
+                    <p>No playlists found.</p>
                 <% } %>
             </div>
         </main>

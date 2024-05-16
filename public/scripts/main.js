@@ -1,6 +1,6 @@
-// Script JavaScript per il sito
+// JavaScript script for the site
 
-// Esempio di script per la gestione di interazioni utente, come la visualizzazione di un messaggio di benvenuto
+// Example script for handling user interactions, such as displaying a welcome message
 document.addEventListener('DOMContentLoaded', () => {
-    alert('Benvenuto nel Social Network for Music!');
+    alert('Welcome to the Social Network for Music!');
 });

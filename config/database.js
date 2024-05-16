@@ -1,10 +1,14 @@
-// Import del modulo dotenv per caricare le variabili d'ambiente
+// Import the dotenv module to load environment variables
 require('dotenv').config();
 
-// Definizione dell'URL del database MongoDB
-const dbURI = process.env.MONGODB_URI || 'mongodb+srv://simone:<password>@cluster0.7dpoap2.mongodb.net/';
+// Define the MongoDB database URL
+const dbURI = process.env.MONGODB_URI;
 
-// Esportazione dell'URL del database
+if (!dbURI) {
+  throw new Error('Please define the MONGODB_URI environment variable');
+}
+
+// Export the database URL
 module.exports = {
     url: dbURI
 };

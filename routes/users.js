@@ -2,9 +2,13 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
-// Route per la visualizzazione del profilo utente
+// Route for viewing the user profile
 router.get('/:userId', userController.getUserProfile);
 
-// Altre route per la modifica delle preferenze utente, la cancellazione dell'account, ecc., possono essere aggiunte qui
+// Route for modifying user preferences
+router.put('/:userId', userController.modifyUserPreferences);
+
+// Route for deleting the account
+router.delete('/:userId', userController.deleteAccount);
 
 module.exports = router;

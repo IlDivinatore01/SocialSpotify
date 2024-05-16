@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // Altri campi del modello utente possono essere aggiunti qui
+    // Other fields for the user model can be added here
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

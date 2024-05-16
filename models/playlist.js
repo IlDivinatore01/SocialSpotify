@@ -17,7 +17,7 @@ const playlistSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    // Altri campi del modello playlist possono essere aggiunti qui
+    // Other fields for the playlist model can be added here
 }, { timestamps: true });
 
 const Playlist = mongoose.model('Playlist', playlistSchema);

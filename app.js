@@ -1,4 +1,4 @@
-// Import dei moduli necessari
+// Import necessary modules
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -6,19 +6,19 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const dotenv = require('dotenv');
 
-// Inizializzazione dell'app Express
+// Initialize Express app
 const app = express();
 
-// Configurazione delle variabili d'ambiente
+// Configure environment variables
 dotenv.config();
 
-// Configurazione del database
+// Configure the database
 const db = require('./config/database');
 mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connessione al database MongoDB riuscita'))
-    .catch(err => console.error('Errore durante la connessione al database', err));
+    .then(() => console.log('Successfully connected to MongoDB database'))
+    .catch(err => console.error('Error while connecting to the database', err));
 
-// Configurazione delle sessioni
+// Configure sessions
 app.use(cookieParser());
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -26,19 +26,19 @@ app.use(session({
     saveUninitialized: false
 }));
 
-// Inizializzazione di Passport.js per l'autenticazione
+// Initialize Passport.js for authentication
 require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Middleware per il parsing del body delle richieste
+// Middleware for parsing request bodies
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Middleware per servire i file statici
+// Middleware to serve static files
 app.use(express.static('public'));
 
-// Configurazione delle route
+// Configure routes
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const playlistsRouter = require('./routes/playlists');
@@ -49,8 +49,8 @@ app.use('/auth', authRouter);
 app.use('/playlists', playlistsRouter);
 app.use('/users', usersRouter);
 
-// Avvio del server
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server avviato su http://localhost:${PORT}`);
+    console.log(`Server started on http://localhost:${PORT}`);
 });
