@@ -14,7 +14,7 @@ dotenv.config();
 
 // Configure the database
 const db = require('./config/database');
-mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db.url)
     .then(() => console.log('Successfully connected to MongoDB database'))
     .catch(err => console.error('Error while connecting to the database', err));
 
@@ -27,7 +27,6 @@ app.use(session({
 }));
 
 // Initialize Passport.js for authentication
-require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
